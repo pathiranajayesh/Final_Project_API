@@ -1,4 +1,4 @@
-﻿namespace SkyEuropeJobs.API.DTOs
+﻿namespace SkyEuropeJobs.Application.DTOs
 {
     public class LoginDto
     {

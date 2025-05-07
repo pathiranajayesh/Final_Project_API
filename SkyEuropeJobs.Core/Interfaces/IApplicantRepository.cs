@@ -9,8 +9,7 @@ namespace SkyEuropeJobs.Core.Interfaces
 {
     public interface IApplicantRepository : IRepository<Applicant>
     {
-        //Task<IEnumerable<Applicant>> GetApplicantsByCountryAsync(int countryId);
+        Task<Applicant> GetByIdAsync(string ApplicantId);
         Task<List<Applicant>> SearchApplicantsAsync(string searchKeyword);
-
     }
 }

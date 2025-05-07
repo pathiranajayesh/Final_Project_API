@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using SkyEuropeJobs.API.DTOs;
+using SkyEuropeJobs.Application.DTOs;
 using SkyEuropeJobs.Core.Entities;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -56,7 +56,7 @@ namespace SkyEuropeJobs.API.Controllers
         }
 
         [HttpPost("refresh")]
-        public async  Task<IActionResult> Refresh()
+        public async Task<IActionResult> Refresh()
         {
             if (!Request.Cookies.TryGetValue("refreshToken", out var refreshToken))
                 return Unauthorized();

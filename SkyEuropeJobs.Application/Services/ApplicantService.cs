@@ -115,5 +115,11 @@ namespace SkyEuropeJobs.Application.Services
         {
             return await _unitOfWork.Applicants.SearchApplicantsAsync(searchKeyword);
         }
+
+        // Applicant-related payment methods
+        public async Task<List<Payment>> GetPaymentsByApplicantIdAsync(string applicantId)
+        {
+            return await _unitOfWork.Payments.GetPaymentsByApplicantIdAsync(applicantId);
+        }
     }
 }

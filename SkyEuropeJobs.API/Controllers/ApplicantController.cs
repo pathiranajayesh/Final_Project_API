@@ -5,7 +5,7 @@ using SkyEuropeJobs.Core.Entities;
 
 namespace SkyEuropeJobs.API.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class ApplicantController : ControllerBase

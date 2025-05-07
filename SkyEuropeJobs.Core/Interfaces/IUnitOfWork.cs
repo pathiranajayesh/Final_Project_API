@@ -9,6 +9,7 @@ namespace SkyEuropeJobs.Core.Interfaces
     public interface IUnitOfWork : IDisposable
     {
         IApplicantRepository Applicants { get; }
+        IPaymentRepository Payments { get; }
         Task<int> SaveChangesAsync();
     }
 }

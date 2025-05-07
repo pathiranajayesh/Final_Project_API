@@ -15,8 +15,9 @@ namespace SkyEuropeJobs.Infrastructure.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
         public DbSet<Applicant> Applicants { get; set; }
-        
-      
+        public DbSet<Payment> Payments { get; set; }
+
+
         // Override OnModelCreating to define custom schemas
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -33,6 +34,15 @@ namespace SkyEuropeJobs.Infrastructure.Data
 
             // Specify schema for Applicant tables
             builder.Entity<Applicant>().ToTable("Applicant", "Applicant");
+            // Specify schema for Payment table
+            builder.Entity<Payment>().ToTable("Payment", "Billing");
+
+            // Configure relationships
+            //builder.Entity<Payment>()
+            //    .HasOne(p => p.Applicant)
+            //    .WithMany(a => a.Payments)
+            //    .HasForeignKey(p => p.ApplicantId)
+            //    .OnDelete(DeleteBehavior.Cascade);
         }
 
         public override int SaveChanges()

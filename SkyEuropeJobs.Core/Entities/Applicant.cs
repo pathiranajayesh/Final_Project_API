@@ -22,18 +22,18 @@ namespace SkyEuropeJobs.Core.Entities
         public string? AddressLine2 { get; set; }
         public string? AddressLine3 { get; set; }
         public string? Area { get; set; }
-        public string? City { get; set;}
-        public string? District { get; set;}
-        public string? Province { get; set;}
-        public string? PoliceArea { get; set;}
-        public string? PostalCode { get; set;}
-        public string? PhoneMobile { get; set;}
-        public string? PhoneMobile2 { get; set;}
+        public string? City { get; set; }
+        public string? District { get; set; }
+        public string? Province { get; set; }
+        public string? PoliceArea { get; set; }
+        public string? PostalCode { get; set; }
+        public string? PhoneMobile { get; set; }
+        public string? PhoneMobile2 { get; set; }
         public string? PhoneFixed { get; set; }
-        public string? WhatsAppMobile { get; set;}
+        public string? WhatsAppMobile { get; set; }
 
         // Spouse details
-        public string? Spouse_Fullname { get; set;}
+        public string? Spouse_Fullname { get; set; }
         public string? Spouse_NICNumber { get; set; }
         public string? Spouse_PhoneMobile { get; set; }
         public string? Spouse_AddressLine1 { get; set; }
@@ -56,13 +56,16 @@ namespace SkyEuropeJobs.Core.Entities
         public string? Father_AddressLine2 { get; set; }
         public string? Father_AddressLine3 { get; set; }
 
-        //Dates
+        // Dates
         public DateTime? RegisterdOn { get; set; }
         public string? RegisterdBy { get; set; }
         public DateTime? CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
 
-        //Notes
+        // Notes
         public string? Notes { get; set; }
+
+        // Relationship with Payments
+        public ICollection<Payment> Payments { get; set; } = new List<Payment>();
     }
 }

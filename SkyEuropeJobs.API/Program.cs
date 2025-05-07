@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using SkyEuropeJobs.Application.Interfaces;
+using SkyEuropeJobs.Application.Mapping;
 using SkyEuropeJobs.Application.Services;
 using SkyEuropeJobs.Core.Entities;
 using SkyEuropeJobs.Core.Interfaces;
@@ -75,7 +76,11 @@ builder.Services.AddAuthorization();
 
 //DI references
 builder.Services.AddScoped<IApplicantService, ApplicantService>();
+builder.Services.AddScoped<IPaymentService, PaymentService>();
+
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+builder.Services.AddAutoMapper(typeof(MappingProfile));
 
 
 
