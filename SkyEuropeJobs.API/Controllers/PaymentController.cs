@@ -43,9 +43,24 @@ namespace SkyEuropeJobs.API.Controllers
         [HttpPost]
         public async Task<IActionResult> AddPayment([FromBody] PaymentDto payment)
         {
-            await _paymentService.AddPaymentAsync(payment);
-            return CreatedAtAction(nameof(GetPaymentById), new { id = payment.Id }, payment);
+            try
+            {
+                if (string.IsNullOrEmpty(payment.Id))
+                {
+                    payment.Id = Guid.NewGuid().ToString(); // Generate a new ID if not provided
+                }
+
+                await _paymentService.AddPaymentAsync(payment);
+                return Ok();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
         }
+
 
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdatePayment(string id, [FromBody] PaymentDto payment)
